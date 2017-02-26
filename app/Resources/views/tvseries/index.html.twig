@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.user %}
+
+        <div class="jumbotron text-center">
+
+            <h1 class="text-center">Welcome {{ app.user.username }}</h1>
+            <p class="text-center">
+                Logout : <a href="{{ path('re_logout') }}">Logout</a><br/>
+            </p>
+            <h1>Toutes les séries</h1>
+        </div>
+
+        <table class="table table-striped">
+
+            {{ knp_pagination_render(tvSeries) }}
+
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Released at</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for tvSeries in tvSeries %}
+                <tr>
+                    <td><a href="{{ path('tvseries_show', { 'id': tvSeries.id }) }}">{{ tvSeries.name }}</a></td>
+                    <td>{{ tvSeries.author }}</td>
+                    <td>{% if tvSeries.releasedAt %}{{ tvSeries.releasedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ tvSeries.description }}</td>
+                    <td>{{ tvSeries.image }}</td>
+                    <td>
+                        <a href="{{ path('tvseries_show', { 'id': tvSeries.id }) }}" class="btn btn-info"> View</a>
+                        <a href="{{ path('tvseries_edit', { 'id': tvSeries.id }) }}" class="btn btn-default"> Edit</a>
+                        <a href="{{ path('tvseries_delete', { 'id': tvSeries.id }) }}" class="btn btn-danger">
+                            Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <ul class="list-unstyled">
+            <li>
+                <a href="{{ path('tvseries_new') }}" class="btn btn-success">Create a new tv serie</a>
+            </li>
+        </ul>
+
+    {% else %}
+        <div class="jumbotron text-center">
+            <h3>You are loggout</h3>
+        </div>
+    {% endif %}
+
+
+{% endblock %}

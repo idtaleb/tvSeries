@@ -1,0 +1,13 @@
+<?php
+namespace AppBundle/Entity;
+
+class TvSeries{
+
+  private $id;
+  pivate $name;
+  $author;
+  $releaseDate;
+  $description;
+  $image;
+
+}

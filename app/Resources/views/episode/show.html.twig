@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <hr>
+    <hr>
+    <a class="btn btn-default" href="{{ path('episode_index', { 'id': episode.getTvSerie().id }) }}">Back to episodes</a>
+    <h2 class="page-header">{{ episode.name }}</h2>
+
+
+    <ul class="list-group">
+        <li class="list-group-item"> Name : {{ episode.name }}</li>
+        <li class="list-group-item"> Episode number : {{ episode.episodeNumber }}</li>
+        <li class="list-group-item"> Date publish : {% if episode.datePublish %}{{ episode.datePublish|date('Y-m-d H:i:s') }}{% endif %}</li>
+        <li class="list-group-item"> Description : {{  episode.description }}</li>
+        <li class="list-group-item"> Image : <img src="{{asset('uploads/images/'~episode.image)}}" /></li>
+
+    </ul>
+
+    <ul class="list-unstyled">
+
+        <li>
+            <a href="{{ path('episode_edit', { 'id': episode.id }) }}" class="btn btn-default"> Edit</a>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+
+    </ul>
+{% endblock %}

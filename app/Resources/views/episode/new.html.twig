@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <hr>
+    <hr>
+    <h2 class="page-header">Create a new episode</h2>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create"  class="btn btn-primary"/>
+    {{ form_end(form) }}
+
+{% endblock %}

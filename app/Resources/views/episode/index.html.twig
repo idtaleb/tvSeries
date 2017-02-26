@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="jumbotron text-center">
+        <h1>All episodes</h1>
+    </div>
+
+    <a class="btn btn-default" href="{{ path('tvseries_show', { 'id': episodes[0].getTvSerie().id }) }}">Back to serie</a>
+
+    <table class="table table-striped">
+
+        {{ knp_pagination_render(episodes) }}
+
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Episode number</th>
+            <th>Date publish</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for episode in episodes %}
+            <tr>
+                <td>{{ episode.name }}</td>
+                <td>{{ episode.episodeNumber }}</td>
+                <td>{% if episode.datePublish %}{{ episode.datePublish|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ episode.description }}</td>
+                <td><img src="{{ asset('uploads/images/'~episode.image) }}"/></td>
+                <td><a href="{{ path('episode_show', { 'id': episode.id }) }}" class="btn btn-primary"> View </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

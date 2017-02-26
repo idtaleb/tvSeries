@@ -1,0 +1,68 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    {% include '::flash_message.html.twig' %}
+
+
+    {% if app.user %}
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <h1 class="text-center">Welcome {{ app.user.username }}</h1>
+        <p class="text-center">
+            Logout : <a href="{{ path('re_logout') }}">Logout</a><br/>
+        </p>
+    {% else %}
+
+
+        <div class="container">
+            <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                <hr>
+                <hr>
+                <hr>
+                <h1 class="text-center"><i class="fa fa-lock fa-2x"></i></h1>
+                <form action="{{ path('re_login') }}" method="post" class="form-horizontal">
+
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}">
+
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label for="username" class="control-label">{{ 'username'|trans }}</label>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}"
+                                   class="form-control" placeholder="{{ 'username'|trans }}"/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">{{ 'pass'|trans }}</label>
+                            <input type="password" id="password" name="_password" class="form-control"
+                                   placeholder="{{ 'pass'|trans }}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">{{ 'submit'|trans }}</button>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
+            </div>
+
+        </div>
+    {% endif %}
+
+{% endblock %}

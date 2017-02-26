@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <hr>
+    <h2 class="page-header">Create a new tv series</h2>
+    <hr>
+
+    <hr>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_row(form.image) }}
+        <input type="submit" value="Create" class="btn btn-primary"/>
+    {{ form_end(form) }}
+
+
+{% endblock %}

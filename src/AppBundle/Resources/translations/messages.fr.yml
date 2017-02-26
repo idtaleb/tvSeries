@@ -1,0 +1,92 @@
+navbar:
+     home: Accueil
+     services: Service
+     contact: Contact
+     language: Langue
+     choose: Choix langue
+     brand: symfo_tuto
+     login: login
+
+head:
+    title: Bienvenue sur symfo_tuto
+    msg: Tutoriels videos
+    button: Voir
+
+breadcrumb:
+     home: Accueil
+     services: Services
+     contact: Contact
+
+service:
+    title: Service
+    msg:   Consultez les documents
+login:
+    title: Login
+    msg: nom d'utilisateurs & mot de passe
+    loggued: Compte
+    head: AccÃ¨s Utilisateur
+    username: Nom d'utilisateur
+    pass: Mot de passe
+    submit: Envoyer
+
+logout:
+    msg: Vous avez été déloggué
+    add: Merci
+
+contact:
+    title: Bienvenue sur notre page de contact
+    msg: envoyez nous un email
+    button: Voir
+    head: Formulaire de contact
+    p:
+       firstname: Prenom
+       lastname: Nom
+       email: Entrez un email valide
+       message: Votre message
+    form:
+       firstname: Prenom
+       lastname: Nom
+       email: Email
+       object: Objet
+       message: Message
+       reset: Effacer
+       send: Envoyer
+    success:
+       head: Le message a Ã©tÃ© envoyÃ©
+       msg: merci!
+       timer: Fermeture automatique dans
+       unity: secondes
+    error:
+       head: Erreur formulaire
+       timer: Fermeture automatique dans
+       unity: secondes
+       
+panel:
+    1:
+      title: titre1
+      list: sousmenu1
+      details: details
+    2:
+      title: titre2
+      list: sousmenu2
+      details: details
+    3:
+      title: titre3
+      list: sousmenu3
+      details: details
+
+footer:
+    title1: footer1
+    title2: footer2
+    title3: footer3
+    title4: footer4
+    title5: footer5
+    d1: details1
+    d2: details2
+    d3: details3
+    d4: details4
+    d5: details5
+    d6: details6
+    d7: details7
+    d8: details8
+    copyright: copyright

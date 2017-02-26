@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <hr>
+    <hr>
+    <a class="btn btn-default" href="{{ path('tvseries_index') }}">Back to series</a>
+    <h2 class="page-header">{{ tvSeries.name }}</h2>
+
+    <ul class="list-group">
+        <li class="list-group-item"> Author : {{ tvSeries.author }}</li>
+        <li class="list-group-item"> Released at : {% if tvSeries.releasedAt %}{{ tvSeries.releasedAt|date('Y-m-d H:i:s') }}{% endif %}</li>
+        <li class="list-group-item"> Description : {{ tvSeries.description }}</li>
+        <li class="list-group-item"> Image : <img src="{{asset('uploads/images/'~tvSeries.image)}}" /></li>
+
+    </ul>
+
+    <ul class="list-unstyled">
+
+        <li>
+            <a href="{{ path('tvseries_edit', { 'id': tvSeries.id }) }}" class="btn btn-default"> Edit</a>
+            <a href="{{ path('episode_new' , { 'id': tvSeries.id } )  }}" class="btn btn-default">Add an episode</a>
+            <a href="{{ path('episode_index' , { 'id': tvSeries.id } )  }}" class="btn btn-default">Show all episodes</a>
+            <a href="{{ path('tvseries_delete', { 'id': tvSeries.id }) }}" class="btn btn-danger"> Delete</a>
+        </li>
+
+    </ul>
+{% endblock %}
